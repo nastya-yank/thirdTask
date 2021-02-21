@@ -27,6 +27,11 @@ public class Sphere extends CustomerShape implements Observable {
         this.radius = radius;
     }
 
+    public Sphere(CustomerPoint center, double radius) {
+        this.center = center;
+        this.radius = radius;
+    }
+
     public CustomerPoint getCenter() {
         return center;
     }

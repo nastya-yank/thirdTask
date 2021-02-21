@@ -32,11 +32,7 @@ public class SphereAction {
         logger.log(Level.INFO, "volume sphere " + shape.toString() + " :" + volume);
         return volume;
     }
-    public static double volumeRatioByXY(CustomerShape shape) throws ShapeException{
-        if (shape == null || shape.getClass() != Sphere.class) {
-            throw new ShapeException("Incompatible shape");
-        }
-        Sphere sphere = (Sphere) shape;
+    public static double volumeRatioByXY(Sphere sphere) throws ShapeException{
         CustomerPoint center = sphere.getCenter();
         double radius = sphere.getRadius();
         double z = center.getZ();
@@ -50,41 +46,5 @@ public class SphereAction {
                 * (3 * radius - heightRestSphereSegment) / 3;
         return volumeSphereSegment / volumeRestSphereSegment;
     }
-    public static boolean isSphere(CustomerShape shape) throws ShapeException {
-        boolean result=false;
-        if (shape == null || shape.getClass() != Sphere.class) {
-            throw new ShapeException("Incompatible shape");
-        }
-        Sphere sphere = (Sphere) shape;
-        CustomerPoint center = sphere.getCenter();
-        double radius = sphere.getRadius();
-        double x = center.getX();
-        double y = center.getY();
-        double z = center.getZ();
-        if (x >= 0 && x - radius < 0 || y >= 0 && y - radius < 0 || z >= 0 && z - radius < 0 ) {
-            result = true;
-        }
-        if (x <= 0 && x + radius > 0 || y <= 0 && y + radius > 0 || z <= 0 && z + radius > 0 ) {
-            result = true;
-        }
-        return result;
-    }
-    public static boolean isTouchUpon(CustomerShape shape) throws ShapeException {
-        boolean result = false;
-        if (shape == null || shape.getClass() != Sphere.class) {
-            throw new ShapeException("Incompatible shape");
-        }
-        Sphere sphere = (Sphere) shape;
-        CustomerPoint center = sphere.getCenter();
-        double radius = sphere.getRadius();
-        double x = center.getX();
-        double y = center.getY();
-        double z = center.getZ();
-        if (x + radius == 0 || x - radius == 0 ||
-                y + radius == 0 || y - radius == 0 ||
-                z + radius == 0	|| z - radius == 0) {
-            result = true;
-        }
-        return result;
-    }
+
 }

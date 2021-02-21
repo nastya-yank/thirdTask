@@ -9,12 +9,15 @@ import java.util.Map;
 
 public class Warehouse {
     public static Logger logger = LogManager.getLogger();
-    private final static Warehouse warehouse = new Warehouse();
+    private  static Warehouse warehouse;
     private Map<Long, ShapeValue> shapesValues = new HashMap<>();
     private Warehouse(){
 
     }
     public static Warehouse getWarehouse() {
+        if (warehouse == null) {
+            warehouse = new Warehouse();
+        }
         return warehouse;
     }
     public ShapeValue addShapeValue(Long shapeId, ShapeValue shapeValue) {
