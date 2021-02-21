@@ -1,5 +1,6 @@
 package com.epam.golubeva.shape.repository.impl;
 
+import com.epam.golubeva.shape.action.SphereAction;
 import com.epam.golubeva.shape.entity.CustomerShape;
 import com.epam.golubeva.shape.entity.Sphere;
 import com.epam.golubeva.shape.exception.ShapeException;
@@ -20,7 +21,7 @@ public class RadiusIntervalSpecification implements Specification {
             return false;
         }
         Sphere sphere = (Sphere) shape;
-        double radius = sphere.getRadius();
+        double radius = SphereAction.getRadius(sphere);
         boolean result = radius >= minRadius && radius <= maxRadius;
         return result;
     }

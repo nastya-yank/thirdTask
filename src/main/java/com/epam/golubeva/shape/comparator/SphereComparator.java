@@ -18,7 +18,7 @@ public enum SphereComparator implements Comparator<CustomerShape> {
         public int compare(CustomerShape sh1, CustomerShape sh2) {
             Sphere sphere1 = (Sphere) sh1;
             Sphere sphere2 = (Sphere) sh2;
-            return Double.compare(sphere1.getRadius(), sphere2.getRadius());
+            return Double.compare(SphereAction.getRadius(sphere1), SphereAction.getRadius(sphere2));
         }
     },
     CENTER_X {
